@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-col>
+    
+    <ion-item>
+      <ion-label>Nombre </ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cedula</ion-label>
+      <ion-input [(ngModel)]="cedula" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Correo</ion-label>
+      <ion-input [(ngModel)]="correo" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-input [(ngModel)]="fecha" type="date"></ion-input>
+    </ion-item>
+    
+    <ion-button (click)="updateUser(uid)">
+      Guardar Cambios
+    </ion-button>
+    
+  </ion-col>
+
+</ion-content>

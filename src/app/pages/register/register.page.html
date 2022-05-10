@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Usuarios Plantec</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="container">
+
+  
+  <form class="form" [formGroup]="validations_form">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>
+    </ion-item>
+
+    
+
+    
+
+    
+
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.nombre">
+        <div style="color: #eb445a;" class="error-message"
+          *ngIf="validations_form.get('nombre').hasError(validation.type) && (validations_form.get('nombre').dirty || validations_form.get('nombre').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" formControlName="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.apellido">
+          <div style="color: #eb445a;" class="error-message"
+            *ngIf="validations_form.get('apellido').hasError(validation.type) && (validations_form.get('apellido').dirty || validations_form.get('apellido').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-label position="floating">Cédula</ion-label>
+      <ion-input [(ngModel)]="cedula" type="text" formControlName="cedula"  ></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.cedula">
+        <div style="color: #eb445a;" class="error-message"
+          *ngIf="validations_form.get('cedula').hasError(validation.type) && (validations_form.get('cedula').dirty || validations_form.get('cedula').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input [(ngModel)]="correo" formControlName="correo"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.correo">
+        <div style="color: #eb445a;" class="error-message"
+          *ngIf="validations_form.get('correo').hasError(validation.type) && (validations_form.get('correo').dirty || validations_form.get('correo').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <br>
+      <ion-input [(ngModel)]="fecha" type="date" formControlName="fecha" displayFormat="DDDD MMM D, YYYY"
+      min="05/05/2022" max="2022"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.fecha">
+        <div style="color: #eb445a;" class="error-message"
+          *ngIf="validations_form.get('fecha').hasError(validation.type) && (validations_form.get('fecha').dirty || validations_form.get('fecha').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+   
+
+    <ion-button class="btn-enter" (click)="registerUser()" [disabled]="!validations_form.valid" expand="block"
+      fill="solid" size="default">
+      Registrar</ion-button>
+    <label class="error-message">{{errorMessage}}</label>
+    <label class="success-message">{{successMessage}}</label>
+  </form>
+  <ion-item-sliding *ngFor="let p of userPlantec">
+    <ion-card>
+     
+
+
+      <ion-card-content>
+
+        <div class="container">
+          <div class="row">
+            
+
+            <div class="col-6">
+              <p> Nombre : {{p.nombre}}
+                <br>
+                Apellido : {{p.apellido}}
+                <br>
+                Cedula : {{p.cedula}} 
+                <br>
+                Correo:<br> {{p.correo}}
+                <br>
+
+                Fecha <b>{{p.fecha}}</b> 
+              </p>
+
+            </div>
+            
+            <div class="col-1">
+
+              <ion-button (click)="removeUser(p.uid)" color="danger">
+                <ion-icon name="trash"></ion-icon>
+              
+              </ion-button>
+
+          
+           
+              
+            
+            
+              <ion-button
+                (click)="editUser(p.uid,p.nombre,p.apellido,p.cedula,p.correo,p.fecha)"
+                 color="primary">
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+
+            </div>
+
+           
+            
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-item-sliding>
+</div>
+</ion-content>
