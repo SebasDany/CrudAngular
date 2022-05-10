@@ -175,6 +175,7 @@ getUser(){
  
   
   removeUser(uid){
+    this.crudUser.removeUser(uid)
 
   }
 

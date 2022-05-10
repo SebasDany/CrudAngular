@@ -47,8 +47,8 @@ export class CrudUserService {
     })
 
   }
-  removeUser(uid,uid_prod: string){
-    this.afs.database.ref('producto/'+uid+"/"+uid_prod).remove();
+  removeUser(uid){
+    this.afs.database.ref('userPlantec/'+uid).remove();
   }
   
 
