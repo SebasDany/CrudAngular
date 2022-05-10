@@ -1,0 +1,7 @@
+{
+  "name": "plantec",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
