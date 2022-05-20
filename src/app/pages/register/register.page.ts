@@ -112,6 +112,7 @@ export class RegisterPage implements OnInit {
       })
       
      }
+     textbuscar=""
      
 
   ngOnInit() {
@@ -200,5 +201,11 @@ getUser(){
       }
     })
     return await modal.present();
+  }
+  buscar(e){
+   
+  this.textbuscar=e.detail.value
+  console.log(this.textbuscar)
+    
   }
 }

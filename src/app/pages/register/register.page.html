@@ -8,6 +8,9 @@
 
 <ion-content>
   <div class="container">
+    
+
+ 
 
   
   <form class="form" [formGroup]="validations_form">
@@ -94,7 +97,11 @@
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
-  <ion-item-sliding *ngFor="let p of userPlantec">
+
+ 
+<!-- Searchbar with cancel button always shown -->
+<ion-searchbar showCancelButton="always"  (ionChange)="buscar($event)"></ion-searchbar>
+  <ion-item-sliding *ngFor="let p of userPlantec | filtro:textbuscar:'nombre'">
     <ion-card>
      
 

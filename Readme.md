@@ -1,5 +1,5 @@
 
 
 # Clonar el repositorio
-# ejecutar el siguiente comando mpm install
+# ejecutar el siguiente comando npm install
 # ejecutar ionic serve
